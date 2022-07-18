@@ -111,6 +111,8 @@
         --app-h1-margin-bottom: calc(60px * var(--mult-factor));
         --form-margin-bottom: calc(10px * var(--mult-factor));
         --font-size-1: calc(2rem * var(--mult-factor));
+        --form-input-button-border-size: calc(0.1rem * var(--mult-factor));
+        --form-input-button-border-radius: calc(6px * var(--mult-factor));
     }
     #app h1 {
         border: var(--app-h1-border) solid #000;
@@ -122,4 +124,9 @@
         margin-bottom: var(--form-margin-bottom);
         font-size: var(--font-size-1);
     }
+    /* .form input, .form button{
+        border: var(--form-input-button-border-size) solid gray;
+        border-radius: var(--form-input-button-border-radius);
+        
+    } */
 </style>
