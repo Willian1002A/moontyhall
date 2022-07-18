@@ -50,7 +50,6 @@ export default {
         justify-content: center;
         display: flex;
     }
-
     .door-frame{
         position: absolute;
         height: 300px;
@@ -76,7 +75,6 @@ export default {
         align-items: center;
         padding: 20px;
     }
-
     .door .knob {
         height: 20px;
         width: 20px;
@@ -85,7 +83,6 @@ export default {
         align-self: flex-start;
         margin-top: 60px;
     }
-
     .door-frame.selected {
         border-left: var(--selected-border);
         border-top:  var(--selected-border);
@@ -100,12 +97,93 @@ export default {
     .door.open{
         background-color: #0007;
     }
-
     .door.open .knob{
         display: none;
     }
-
     .door.open .number {
         display: none;
     }
+    *{
+        --base-resolution: 1920;
+        --actual-resolution: 360;
+        --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
+    }
+    @media (min-width: 640px) {
+        *{
+            --actual-resolution: 640;
+            --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
+        }
+    }
+    @media (min-width: 1024px) {
+        *{
+            --actual-resolution: 1024;
+            --mult-factor: calc(1024/1920);
+        }
+    }
+    @media (min-width: 1360px) {
+        *{
+            --actual-resolution: 1360;
+            --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
+        }
+    }
+    @media (min-width: 1920px) {
+        *{
+            --actual-resolution: 1920;
+            --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
+        }
+    }
+    *{
+        --door-border-size: calc(5px * var(--mult-factor));
+        --door-area-width: calc(200px * var(--mult-factor));
+        --door-area-height: calc(310px * var(--mult-factor));
+        --door-area-border-bottom-size: calc(10px * var(--mult-factor));
+        --door-area-margin-bottom: calc(20px * var(--mult-factor));
+        --door-area-font-size: calc(3rem * var(--mult-factor));
+        --door-frame-width: calc(300px * var(--mult-factor));
+        --door-frame-height: calc(180px * var(--mult-factor));
+        --door-top: calc(5px * var(--mult-factor));
+        --door-width: calc(170px * var(--mult-factor));
+        --door-height: calc(295px * var(--mult-factor));
+        --door-padding: calc(20px * var(--mult-factor));
+        --door-knob-width-height: calc(20px * var(--mult-factor));
+        --door-knob-border-radius: calc(10px * var(--mult-factor));
+        --door-knob-margin-top: calc(60px * var(--mult-factor));
+    }
+
+    :root{
+        --door-border: var(--door-border-size) solid brown;
+        --selected-border: var(--door-border-size) solid yellow;
+    }
+    .door-area {
+        width: var(--door-area-width);
+        height: var(--door-area-height);
+        border-bottom: var(--door-area-border-bottom-size) solid #AAA;
+        margin-bottom: var(--door-area-border-margin-bottom);
+        font-size: var(--door-area-font-size);
+    }
+    .door-frame{
+        height: var(--door-frame-width);
+        width: var(--door-frame-height);
+        border-left: var(--door-border);
+        border-top: var(--door-border);
+        border-right: var(--door-border);
+    }
+    .door {
+        top:  var(--door-top);
+        width: var(--door-width);
+        height: var(--door-height);
+        padding: var(--door-padding);
+    }
+    .door .knob {
+        width: var(--door-knob-width-height);
+        height: var(--door-knob-width-height);
+        border-radius: var(--door-knob-border-radius);
+        margin-top: var(--door-knob-margin-top);
+    }
+    .door-frame.selected {
+        border-left: var(--selected-border);
+        border-top:  var(--selected-border);
+        border-right: var(--selected-border);
+    }
+
 </style>

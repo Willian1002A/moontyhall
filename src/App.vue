@@ -54,27 +54,72 @@
         align-items: center;
     }
     #app h1 {
-        border: 1px solid #000;
+        /* border: 1px solid #000; */
         background-color: #0004;
-        padding: 20px;
-        margin-bottom: 60px;
+        /* padding: 20px; */
+        /* margin-bottom: 60px; */
     }
     .form {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-bottom: 40px;
+        /* margin-bottom: 40px; */
     }
     .form, .form input, .form button {
-        margin-bottom: 10px;
-        font-size: 2rem;
+        /* margin-bottom: 10px; */
+        /* font-size: 2rem; */
     }
     .doors{
         align-self: stretch;
         display: flex;
         justify-content: space-around;
-
         flex-wrap: wrap;
+    }
+    *{
+        --base-resolution: 1920;
+        --actual-resolution: 360;
+        --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
+    }
+    @media (min-width: 640px) {
+        *{
+            --actual-resolution: 640;
+            --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
+        }
+    }
+    @media (min-width: 1024px) {
+        *{
+            --actual-resolution: 1024;
+            --mult-factor: calc(1024/1920);
+        }
+    }
+    @media (min-width: 1360px) {
+        *{
+            --actual-resolution: 1360;
+            --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
+        }
+    }
+    @media (min-width: 1920px) {
+        *{
+            --actual-resolution: 1920;
+            --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
+        }
+    }
+    *{
+        --app-h1-border: calc(1px * var(--mult-factor));
+        --app-h1-padding: calc(20px * var(--mult-factor));
+        --app-h1-margin-bottom: calc(60px * var(--mult-factor));
+        --form-margin-bottom: calc(10px * var(--mult-factor));
+        --font-size-1: calc(2rem * var(--mult-factor));
+    }
+    #app h1 {
+        border: var(--app-h1-border) solid #000;
+        padding: var(--app-h1-padding);
+        margin-bottom: var(--app-h1-margin-bottom);
+        font-size: var(--font-size-1);
+    }
+    .form, .form input, .form button {
+        margin-bottom: var(--form-margin-bottom);
+        font-size: var(--font-size-1);
     }
 </style>
