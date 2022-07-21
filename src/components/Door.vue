@@ -108,6 +108,12 @@ export default {
         --actual-resolution: 360;
         --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
     }
+    @media (min-width: 400px) {
+        *{
+            --actual-resolution: 400;
+            --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
+        }
+    }
     @media (min-width: 640px) {
         *{
             --actual-resolution: 640;
@@ -117,7 +123,7 @@ export default {
     @media (min-width: 1024px) {
         *{
             --actual-resolution: 1024;
-            --mult-factor: calc(1024/1920);
+            --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
         }
     }
     @media (min-width: 1360px) {

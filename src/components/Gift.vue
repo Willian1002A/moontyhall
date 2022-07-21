@@ -49,6 +49,12 @@ export default {
         --actual-resolution: 360;
         --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
     }
+    @media (min-width: 400px) {
+        *{
+            --actual-resolution: 400;
+            --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
+        }
+    }
     @media (min-width: 640px) {
         *{
             --actual-resolution: 640;
