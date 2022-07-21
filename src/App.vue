@@ -1,7 +1,6 @@
 <template>
   <div id="app">
       <h1>Problema de Monty Hall</h1>
-      
       <div class="form">
           <div v-if="!started">
               <label for="portsAmount">Quantas portas? </label>
@@ -40,22 +39,34 @@
 </script>
 
 <style>
+    html{
+        width: 100vw;
+        height: 100vh;
+    }
     * {
         box-sizing: border-box;
         font-family: 'Montserrat',sans-serif;
     }
     body{
+        margin: 0px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
         color: #FFF;
         background: linear-gradient(to right, rgb( 21, 153, 87), rgb( 21, 87, 153));
     }
     #app {
+        /* width: 100%; */
+        /* height: fit-content; */
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
     }
     #app h1 {
         /* border: 1px solid #000; */
-        background-color: #0004;
+        background-color: #0004; 
         /* padding: 20px; */
         /* margin-bottom: 60px; */
     }
@@ -71,6 +82,7 @@
         /* font-size: 2rem; */
     }
     .doors{
+        width: 100vw;
         align-self: stretch;
         display: flex;
         justify-content: space-around;
