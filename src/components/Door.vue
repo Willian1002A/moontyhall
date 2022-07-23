@@ -105,37 +105,39 @@ export default {
     }
     *{
         --base-resolution: 1920;
-        --actual-resolution: 360;
-        --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
+        --actual-resolution: 360
     }
     @media (min-width: 400px) {
         *{
             --actual-resolution: 400;
-            --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
         }
     }
     @media (min-width: 640px) {
         *{
             --actual-resolution: 640;
-            --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
         }
     }
     @media (min-width: 1024px) {
         *{
             --actual-resolution: 1024;
-            --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
         }
     }
     @media (min-width: 1360px) {
         *{
             --actual-resolution: 1360;
-            --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
         }
     }
     @media (min-width: 1920px) {
         *{
             --actual-resolution: 1920;
-            --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
+        }
+    }
+        *{
+        --mult-factor: calc(var(--actual-resolution)/var(--base-resolution) * 1.5);
+    }
+    @media (orientation: portrait) {
+        *{
+            --mult-factor: calc(var(--actual-resolution)/var(--base-resolution) * 2.5);
         }
     }
     *{
