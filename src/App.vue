@@ -1,20 +1,21 @@
 <template>
   <div id="app">
       <h1>Problema de Monty Hall</h1>
-      <div class="form">
+      <form class="form">
           <div v-if="!started">
               <label for="portsAmount">Quantas portas? </label>
-              <input type="text" id="portsAmount" size="3"
-                v-model.number="portsAmount">
+              <input type="number" id="portsAmount" size="3"
+                v-model.number="portsAmount" required min="1">
           </div>
           <div v-if="!started">
               <label for="selectedPort">Qual porta é premiada? </label>
-              <input type="text" id="selectedPort" size="3"
+              <input type="number" id="selectedPort" size="3" required min="1"
                 v-model.number="selectedPort">
           </div>
-          <button v-if="!started" @click="started = true">Iniciar </button>
+          <input v-if="!started" @click="started = true && selectedPort > 0 && selectedPort <= portsAmount" type="submit" value="Iniciar">
+          <!-- <button v-if="!started" @click="started = true">Iniciar </button> -->
           <button v-if="started" @click="started = false">Reiniciar </button>
-      </div>
+      </form>
       <div class="doors" v-if="started">
           <div v-for="i in portsAmount" :key="i">
               <Door :hasGift="i === selectedPort" :number="i"/>
@@ -32,7 +33,7 @@
             return {
                 started: false,
                 portsAmount: 3,
-                selectedPort: null
+                selectedPort: 1
             } 
         }
     }
