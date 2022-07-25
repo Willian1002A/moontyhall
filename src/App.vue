@@ -4,16 +4,15 @@
       <form class="form">
           <div v-if="!started">
               <label for="portsAmount">Quantas portas? </label>
-              <input type="number" id="portsAmount" size="3"
-                v-model.number="portsAmount" required min="1">
+              <input type="number" id="portsAmount" size="3" max="10" min="1"
+                v-model.number="portsAmount" required>
           </div>
           <div v-if="!started">
               <label for="selectedPort">Qual porta é premiada? </label>
-              <input type="number" id="selectedPort" size="3" required min="1"
+              <input type="number" id="selectedPort" size="3" required :max="portsAmount" min="1"
                 v-model.number="selectedPort">
           </div>
-          <input v-if="!started" @click="started = true && selectedPort > 0 && selectedPort <= portsAmount" type="submit" value="Iniciar">
-          <!-- <button v-if="!started" @click="started = true">Iniciar </button> -->
+          <input v-if="!started" @click="started = true" type="submit" value="Iniciar">
           <button v-if="started" @click="started = false">Reiniciar </button>
       </form>
       <div class="doors" v-if="started">
