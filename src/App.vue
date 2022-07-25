@@ -12,7 +12,7 @@
               <input type="number" id="selectedPort" size="3" required :max="portsAmount" min="1"
                 v-model.number="selectedPort">
           </div>
-          <input v-if="!started" @click="started = true" type="submit" value="Iniciar">
+          <input v-if="!started" @click="started = true && portsAmount > 0 && selectedPort <= portsAmount" type="submit" value="Iniciar">
           <button v-if="started" @click="started = false">Reiniciar </button>
       </form>
       <div class="doors" v-if="started">
